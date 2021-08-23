@@ -1,0 +1,205 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	/* background-image: url(./Content/Bg-Trululu.jpg); */
+	/* background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed; */
+	background-color: rgb(0, 0, 0);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+main {
+	width: 100%;
+	padding: 20px;
+	margin: auto;
+	margin-top: 120px;
+}
+
+.logo {
+	width: 20%;
+	margin-top: 100px;
+}
+
+.main_container {
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+	position: relative;
+}
+
+.bg_box {
+	width: 100%;
+	padding: 10px 20px;
+	display: flex;
+	justify-content: center;
+	backdrop-filter: blur(10px);
+	background-color: rgba(181, 22, 230, 0.493);
+	border-radius: 20px;
+}
+
+.bg_box div {
+	margin: 100px 40px;
+	color: white;
+	transition: all 500ms;
+}
+
+.bg_box div p,
+.bg_box div button {
+	margin-top: 30px;
+}
+
+.bg_box div h3 {
+	font-weight: 400;
+	font-size: 26px;
+}
+
+.bg_box button {
+	padding: 10px 40px;
+	border: 3px solid #fff;
+	background: transparent;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: painter;
+	color: white;
+	outline: none;
+	transition: all 300ms;
+	border-radius: 20px;
+}
+
+.bg_box button:hover {
+	background: #fff;
+	color: #cd21cf;
+}
+
+/*Forms*/
+
+.container_login-register {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	max-width: 380px;
+	position: relative;
+	top: -185px;
+	left: 10px;
+
+	transition: left 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.container_login-register form {
+	width: 100%;
+	padding: 80px 20px;
+	background: #fff;
+	position: absolute;
+	border-radius: 20px;
+}
+
+.container_login-register form h2 {
+	font-size: 30px;
+	text-align: center;
+	margin-bottom: 20px;
+	color: #cd21cf;
+}
+
+.container_login-register form input {
+	width: 100%;
+	margin-top: 20px;
+	padding: 10px;
+	border: none;
+	background: #f2f2f2;
+	font-size: 16px;
+	outline: none;
+	border-radius: 15px;
+}
+
+.container_login-register form div input {
+	padding: 10px 40px;
+	border: 3px solid #cd21cf;
+	background: transparent;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	color: #cd21cf;
+	outline: none;
+	transition: all 300ms;
+	border-radius: 20px;
+}
+
+.container_login-register form div input:hover {
+	background: #cd21cf;
+	color: #fff;
+}
+
+.container_login-register a {
+	padding: 10px 40px;
+	margin-top: 40px;
+	border: 3px solid #cd21cf;
+	background: transparent;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	color: #cd21cf;
+	outline: none;
+	transition: all 300ms;
+	border-radius: 20px;
+}
+
+.container_login-register a:hover {
+	background: #cd21cf;
+	color: #fff;
+}
+
+.form_login {
+	opacity: 1;
+	display: black;
+}
+
+.form_register {
+	display: none;
+}
+
+/*Responsive Design*/
+
+@media screen and (max-width: 850px) {
+	main {
+		margin-top: 1px;
+	}
+
+	.logo {
+		width: 35%;
+		margin-top: 25px;
+	}
+
+	.bg_box {
+		max-width: 350px;
+		height: 300px;
+		flex-direction: column;
+		margin: auto;
+	}
+
+	.bg_box div {
+		margin: 0px;
+		position: absolute;
+	}
+
+	/*Forms*/
+
+	.container_login-register {
+		top: -25px;
+		left: -5px;
+		margin: auto;
+	}
+
+	.container_login-register form {
+		position: relative;
+	}
+}

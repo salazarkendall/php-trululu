@@ -1,0 +1,34 @@
+.body-padding {
+	padding-top: 70px;
+}
+
+.header_bg-image {
+	background-image: linear-gradient(to right bottom, #f4038062, #cfe96798),
+		url('../img/ref01.jpg');
+	background-size: cover;
+	background-position: center;
+	height: 250px;
+	position: relative;
+}
+
+.bg-trululu {
+	background-image: linear-gradient(
+		to top,
+		#c471f5 0%,
+		#fa71cd 100%
+	) !important;
+}
+.grow {
+	transition: all 0.15s ease-in-out;
+}
+.grow:hover {
+	transform: scale(1.025);
+}
+.card {
+	border-radius: 15px;
+}
+.card-img-top {
+	width: 10%;
+	height: 15vw;
+	object-fit: cover;
+}
