@@ -1,18 +1,19 @@
 <?php
 session_start();
 
+// Redirecciona si el usuario no esta conectado
 if (is_null($_SESSION['idUsuario'])) {
     header('Location: ../index.php ');
 }
 
-// Get the user id from the session
 $idUsuario = $_SESSION['idUsuario'];
 $nombreUsuario = $_SESSION['nombreUsuario'];
 $apellidoUsuario = $_SESSION['apellidoUsuario'];
 $idRol = $_SESSION['idRol'];
 
 include '../conexion.php';
-// This first set of GET_CARRITOS is called for the validation
+include '../pages/catalogoSP/getAllMarcas.php';
+
 $curs = oci_new_cursor($conn);
 $getCarritoCount = oci_parse($conn, "begin GET_CARRITO_COUNT(:CM, :ID_USUARIO); end;");
 oci_bind_by_name($getCarritoCount, ":CM", $curs, -1, OCI_B_CURSOR);
@@ -22,7 +23,6 @@ oci_execute($curs);
 
 $count = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS);
 $cantidadProductos = $count['COUNT(*)'];
-
 ?>
 
 <!DOCTYPE html>
@@ -31,93 +31,75 @@ $cantidadProductos = $count['COUNT(*)'];
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
+    <meta name="description" content="Tienda de caramelos Trululu" />
     <meta name="author" content="" />
-    <title>Stocktronic</title>
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../styles/simple-sidebar.css" rel="stylesheet" />
-    <link href="../styles/index.css" rel="stylesheet" />
-    <link href="../styles/newFonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
+    <title>Trululu</title>
+    <link href="../styles/styles.css" rel="stylesheet" />
+    <link href="../styles/custom.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet" />
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark border-bottom fixed-top">
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapse_target">
-            <ul class="navbar-nav list-inline mx-auto justify-content-center">
-                <li class="nav-item mt-1 mr-5">
-                    <a class="navbar-brand" href="/stocktronic/pages/inicio.php">
-                        <img src="../images/isotipo.svg" width="20" height="20" />
-                    </a>
-                </li>
-                <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=1">Componentes</a>
-                </li>
-                <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=2">Herramientas</a>
-                </li>
-                <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=3">Impresoras 3D</a>
-                </li>
-                <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=4">Cortadores Láser</a>
-                </li>
-                <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=5">Raspberry Pi</a>
-                </li>
-                <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="/stocktronic/pages/catalogo.php?q=6">Inalámbricos</a>
-                </li>
-                <li class="nav-item mt-1 mr-5">
-                    <a class="header-link" href="/stocktronic/pages/carrito.php"><i class="fa fa-shopping-cart"></i>
-                        <?php if ($cantidadProductos > 0) {
-                            echo ' (' . $cantidadProductos . ')';
-                        }
-                        ?></a>
-                </li>
-                <li class="nav-item">
-                    <div class="dropdown">
-                        <button class="btn border border-light text-light btn-sm dropdown-toggle rounded" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                            Opciones
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item font-weight-bold" href="#"><?php echo $nombreUsuario . '     ' . $apellidoUsuario ?></a>
-                            <a class="dropdown-item" href="/stocktronic/pages/historial.php">Historial</a>
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top ">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand">
+                <img src="https://res.cloudinary.com/kndx99/image/upload/v1627049507/trululu-project/main-logo_psxlaq.png" alt="main-logo" style="height: 25px">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/trululu/pages/inicio.php">
+                            <i class="bi bi-house-fill"></i>
+                            Productos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/trululu/pages/contactenos.php">
+                            <i class="bi bi-info-circle-fill"></i>
+                            Contáctenos
+                        </a>
+                    </li>
+                    <!-- Dropdown de marcas -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Marcas</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/trululu/pages/inicio.php">Todas las marcas</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
                             <?php
-                            if ($idRol == 1 || $idRol == 2) {
-                                echo '<a class="dropdown-item" href="/stocktronic/pages/tablaProductos.php">Tabla Productos</a>';
-                                echo '<a class="dropdown-item" href="/stocktronic/pages/tablaEntregas.php">Tabla Entregas</a>';
-                            }
-                            if ($idRol == 1) {
-                                echo '<a class="dropdown-item" href="/stocktronic/pages/tablaUsuarios.php">Tabla Usuarios</a>';
-                                echo '<a class="dropdown-item" href="/stocktronic/pages/tablaErrores.php">Tabla Errores</a> ';
+                            $data = get_all_marcas($conn);
+                            while (($row = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                                $idMarca = $row['ID_CATEGORIA'];
+                                $productoMarca = $row['TIPO'];
+                                echo "<li><a class='dropdown-item' href='/trululu/pages/catalogo.php?q=$idMarca'>$productoMarca</a></li>";
                             }
                             ?>
-                            <div class="dropdown-divider"></div>
-                            <a id="logout" class="dropdown-item" style='color:red'>Cerrar Sesión</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Boton del carrito -->
+                <button class="btn btn-outline-trululu" type="submit">
+                    <a href="../pages/carrito.php">
+                        <i class="bi-cart-fill me-1"></i>
+                        Carrito
+                        <span class="badge bg-trululu text-white ms-1 rounded-pill">
+                            <?php echo $cantidadProductos ?>
+                        </span>
+                    </a>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../scripts/logout.js"></script>
+    <script src="/trululu/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
