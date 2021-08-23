@@ -1,0 +1,77 @@
+/* Salazar Revise que los fonts esten bien tengo un colocho */
+
+@font-face {
+	src: url(../fonts/SF-Pro-Display-Bold.otf);
+	font-family: sf-bold;
+}
+
+@font-face {
+	src: url(../fonts/SF-Pro.ttf);
+	font-family: sf-regular;
+}
+
+@font-face {
+	src: url(../fonts/SF-Pro-Display-Regular.otf);
+	font-family: sf-regular-display;
+}
+
+@font-face {
+	src: url(../fonts/SF-Compact-Rounded-Regular.otf);
+	font-family: sf-rounded;
+}
+@font-face {
+	src: url(../fonts/SF-COMPACT-TEXT-LIGHT.otf);
+	font-family: sf-compact-light;
+}
+@font-face {
+	src: url(../fonts/SF-Pro-Display-Medium.otf);
+	font-family: sf-medium;
+}
+
+.main-title {
+	font-family: sf-bold !important;
+	font-size: 52px !important;
+	letter-spacing: -1px;
+	color: #333333;
+}
+
+.main-subtitle {
+	font-family: sf-regular !important;
+	font-size: 20px !important;
+	color: #444444;
+}
+
+.subtitle {
+	font-family: sf-compact-light !important;
+	font-size: 25px !important;
+	letter-spacing: -1px;
+	color: #444444;
+}
+
+.product-price {
+	font-family: sf-compact-light !important;
+	font-size: 15px !important;
+}
+
+.header-link {
+	font-family: sf-regular !important;
+	color: #d6d6d6;
+	display: block;
+	padding: 0.5rem 1rem;
+}
+.header-link:focus,
+.header-link:hover {
+	color: white;
+	text-decoration: none;
+}
+.cupertino-link {
+	font-family: sf-compact-light !important;
+	font-size: 25px !important;
+	letter-spacing: -1px;
+	color: #007bff;
+}
+.cupertino-link:focus,
+.cupertino-link:hover {
+	color: #3295ff;
+	text-decoration: none;
+}
