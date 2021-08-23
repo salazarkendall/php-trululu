@@ -24,33 +24,11 @@ $i = 0;
         </div>
     </div>
 
-    <!-- Carrusel -->
-    <div id="carouselExampleControls" class="carousel slide carousel-fade section-top" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../images/banner-01.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../images/banner-02.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../images/banner-03.jpg" class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
-
     <section class="py-5 product-section" id="seccionProductos">
         <div class="container px-4 px-lg-5 mt-4">
             <h1 class="text-center mt-5 main-title">Explore nuestros productos</h1>
+            <hr>
+            <!-- <div class="row gx-4 gx-lg-5 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center"> -->
             <div class="row gx-4 gx-lg-5 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
                 <?php
                 $data = get_products_random($conn);
@@ -91,8 +69,8 @@ $i = 0;
     <script src="../scripts/carritoSP.js"></script>
     <script src="../scripts/carritoSA.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
