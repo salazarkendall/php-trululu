@@ -4,8 +4,6 @@
 </head>
 
 <?php
-// include '../scripts/procedures.php';
-// include '../components/validator.php';
 include '../pages/catalogoSP/getProductos.php';
 include '../components/header.php';
 $i = 0;

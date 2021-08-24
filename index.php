@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="/trululu/images/logo-trululu-store.png" type="image" rel="shortcut icon" />
 </head>
 
 <body>
@@ -49,20 +50,30 @@
                 <!-- Registro -->
                 <form method="POST" class="form_register">
                     <h2>Registrarse</h2>
-                    <input type="text" name="name" id="name" class="name" placeholder="Nombre">
-                    <span class="error"></span>
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" class="name" placeholder="Nombre">
+                        <span class="error"></span>
+                    </div>
 
-                    <input type="text" name="lastName1" id="lastName1" class="lastName1" placeholder="Primer Apellido">
-                    <span class="error"></span>
+                    <div class="form-group">
+                        <input type="text" name="lastName1" id="lastName1" class="lastName1" placeholder="Primer Apellido">
+                        <span class="error"></span>
+                    </div>
 
-                    <input type="text" name="lastName2" id="lastName2" class="lastName2" placeholder="Segundo Apellido">
-                    <span class="error"></span>
+                    <div class="form-group">
+                        <input type="text" name="lastName2" id="lastName2" class="lastName2" placeholder="Segundo Apellido">
+                        <span class="error"></span>
+                    </div>
 
-                    <input type="email" name="email" id="email" class="email" required placeholder="Correo Electrónico">
-                    <span class="error"></span>
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" class="email" required placeholder="Correo Electrónico">
+                        <span class="error"></span>
+                    </div>
 
-                    <input type="password" name="password" id="password" class="password" placeholder="Contraseña">
-                    <span class="error"></span>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="password" placeholder="Contraseña">
+                        <span class="error"></span>
+                    </div>
 
                     <div class="CTA">
                         <input type="submit" id="btnRegister" value="Crear Cuenta" class="btn" />
