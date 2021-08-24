@@ -1,7 +1,7 @@
 <head>
-    <title>Inventario - Stocktronic</title>
+    <title>Inventario - Trululu</title>
     <link href="../styles/checkout.css" rel="stylesheet" />
-    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
+    <link href="../images/logo-trululu-store.png" type="image" rel="shortcut icon" />
     <!-- This link reference here is for the table pagination -->
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet'>
@@ -32,7 +32,7 @@ oci_execute($curs);
     <div class="container header-top">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
-                <h2 class="heading-section">Inventario Stocktronic</h2>
+                <h2 class="heading-section">Inventario Trululu</h2>
                 <a href="formProductoInsert.php"><button class="btn btn-primary mt-3 mb-4">Agregar Producto</button></a>
             </div>
         </div>

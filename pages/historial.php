@@ -1,9 +1,9 @@
 <head>
-    <title>Historial - Stocktronic</title>
+    <title>Historial - Trululu</title>
     <link href="../styles/newFonts.css" rel="stylesheet" />
     <link href="../styles/historial.css" rel="stylesheet" />
     <link href="../styles/modal.css" rel="stylesheet" />
-    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
+    <link href="../images/logo-trululu-store.png" type="image" rel="shortcut icon" />
     <!-- This link reference here is for the table pagination -->
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet'>

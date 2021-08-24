@@ -1,6 +1,6 @@
 <head>
-    <title>Carrito - Stocktronic</title>
-    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
+    <title>Carrito - Tienda Trululu</title>
+    <link href="../images/logo-trululu-store.png" type="image" rel="shortcut icon" />
     <link href="../styles/carrito.css" rel="stylesheet" />
 </head>
 

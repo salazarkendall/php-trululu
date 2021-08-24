@@ -23,7 +23,6 @@ function closeSession()
     unset($_SESSION['Conectado']);
     session_destroy();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -35,13 +34,15 @@ function closeSession()
     <meta name="description" content="Tienda de caramelos Trululu" />
     <meta name="author" content="" />
     <title>Trululu</title>
-    <!-- Custom Styles -->
-    <link href="../styles/styles.css" rel="stylesheet" />
-    <link href="../styles/custom.css" rel="stylesheet" />
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom Styles -->
+    <link href="../styles/styles.css" rel="stylesheet" />
+    <link href="../styles/custom.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -88,19 +89,21 @@ function closeSession()
                     <!-- Dropdown de marcas -->
 
                     <?php
+
+                    echo '<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opciones</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/trululu/pages/historial.php">Historial</a>';
                     if ($idRol == 1 || $idRol == 2) {
-                        echo '<li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opciones</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">';
                         echo '<a class="dropdown-item" href="/trululu/pages/tablaProductos.php">Tabla Productos</a>';
                         echo '<a class="dropdown-item" href="/trululu/pages/tablaEntregas.php">Tabla Entregas</a>';
                         if ($idRol == 1) {
                             echo '<a class="dropdown-item" href="/trululu/pages/tablaUsuarios.php">Tabla Usuarios</a>';
                             echo '<a class="dropdown-item" href="/trululu/pages/tablaErrores.php">Tabla Errores</a> ';
                         }
-                        echo '</ul>
-                            </li>';
                     }
+                    echo '</ul>
+                        </li>';
                     ?>
                 </ul>
                 <!-- Nombre del Usuario -->

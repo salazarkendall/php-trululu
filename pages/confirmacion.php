@@ -1,7 +1,7 @@
 <head>
-    <title>Confirmación - Stocktronic</title>
+    <title>Confirmación - Trululu</title>
     <link href="../styles/confirmacion.css" rel="stylesheet" />
-    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
+    <link href="../images/logo-trululu-store.png" type="image" rel="shortcut icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
@@ -12,21 +12,16 @@ include "../components/header.php";
 $nombreUsuario = $_SESSION['nombreUsuario'];
 $apellidoUsuario = $_SESSION['apellidoUsuario'];
 
-// Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);
 
-// Get id
 $idOrden = "";
 $totalOrden = 0;
 $totalInfoPago = 0;
 
-// Call the stored procedure to bring all metodos de pago
 $getOrden = oci_parse($conn, "begin GET_ORDEN(:CM); end;");
 
-// Pass the memory cursor into the stored procedure, Note: Idk what -1 does, but leave it there hehe
 oci_bind_by_name($getOrden, ":CM", $curs, -1, OCI_B_CURSOR);
 
-// Execute the stored procedured and the memory cursor
 oci_execute($getOrden);
 oci_execute($curs);
 
@@ -37,7 +32,7 @@ oci_execute($curs);
         <div class="row d-flex justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="text-left logo p-2 px-5"> <img src="../images/isotipoDark.svg" width="40"> </div>
+                    <div class="text-left logo p-2 px-5"> <img src="../images/logo-trululu-store.png" width="40"> </div>
                     <div class="invoice p-5">
                         <h5>Tú orden ha sido confirmada!</h5> <span class="font-weight-bold d-block mt-4">Hola <?php echo $nombreUsuario . ' ' . $apellidoUsuario ?></span> <span>Tú orden ha sido confirmada y podrás ver los detalles de esta en tú historial</span>
                         <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
@@ -76,14 +71,11 @@ oci_execute($curs);
                             <table class="table table-borderless">
                                 <tbody>
                                     <?php
-                                    // Declare de memory cursor and the stored procedure
                                     $curs2 = oci_new_cursor($conn);
                                     $getDetalleOrden = oci_parse($conn, "begin GET_DETALLE_ORDENES(:CM, $idOrden); end;");
 
-                                    // Bind the memory cursor to the stored procedure
                                     oci_bind_by_name($getDetalleOrden, ":CM", $curs2, -1, OCI_B_CURSOR);
 
-                                    // Execute the calls to the database
                                     oci_execute($getDetalleOrden);
                                     oci_execute($curs2);
 
@@ -148,7 +140,7 @@ oci_execute($curs);
                                 </table>
                             </div>
                         </div>
-                        <p class="font-weight-bold mb-0">Gracias por confiar en nosotros!</p> <span>Stocktronic Team</span>
+                        <p class="font-weight-bold mb-0">Gracias por confiar en nosotros!</p> <span>Tienda Trululu</span>
                     </div>
                     <div class="d-flex justify-content-between footer p-3"> <span>Regresar a la<a href="inicio.php"> página principal</a></span> <span>Agosto, 2021</span> </div>
                 </div>

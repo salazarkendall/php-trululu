@@ -1,10 +1,6 @@
-<?php
-// include '../pages/catalogoSP/getAllMarcas.php';
-?>
-
 <div class="row justify-content-center mt-5">
     <footer class="footer col-md-6">
-        <div class="bg-dark">
+        <div class="bg-trululu">
             <div class="container container-fluid">
                 <div class="row py-4 d-flex align-items-center">
                     <div class="col-md-12 text-center">
@@ -28,18 +24,12 @@
                     </h6>
                     <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 125px; height: 2px" />
                     <ul class="list-unstyled">
-                        <!-- <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=1">Componentes</a></li>
-                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=2">Herramientas</a></li>
-                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=3">Impresoras 3D</a></li>
-                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=4">Cortadores Láser</a></li>
-                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=5">Raspberry Pi</a></li>
-                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=6">Inalámbricos</a></li> -->
                         <?php
                         $data = get_all_marcas($conn);
                         while (($row = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
                             $idMarca = $row['ID_CATEGORIA'];
                             $productoMarca = $row['TIPO'];
-                            echo "<li class='mb-1'><a href='/stocktronic/pages/catalogo.php?q=$idMarca'>$productoMarca</a></li>";
+                            echo "<li class='mb-1'><a href='/trululu/pages/catalogo.php?q=$idMarca'>$productoMarca</a></li>";
                         }
                         ?>
 

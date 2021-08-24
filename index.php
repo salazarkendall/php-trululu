@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Stocktronic - Inicio</title>
+    <title>Tienda Trululu - Inicio</title>
 
-    <link href="images/isotipo.svg" type="image" rel="shortcut icon" />
+    <link href="images/logo-trululu-store.png" type="image" rel="shortcut icon" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,600" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
@@ -16,18 +16,17 @@
 </head>
 
 <body class="bg-light">
-    <!-- partial:index.partial.html -->
+
     <div class="container">
 
         <section id="formHolder" class="margin-top">
             <div class="row">
 
-                <!-- Brand Box -->
                 <div class="col-sm-6 brand">
                     <a href="#" class="logo">ST <span>.</span></a>
 
                     <div class="heading">
-                        <h2>Stocktronic</h2>
+                        <h2>Tienda Trululu</h2>
                         <p>La elección correcta</p>
                     </div>
 
@@ -37,11 +36,8 @@
                     </div>
                 </div>
 
-
-                <!-- Form Box -->
                 <div class="col-sm-6 form">
 
-                    <!-- Login Form -->
                     <div class="login form-peice">
                         <form class="login-form" action="#" method="post">
                             <div class="form-group">
@@ -61,9 +57,8 @@
                                 <a href="#" class="switch">Crear una cuenta</a>
                             </div>
                         </form>
-                    </div><!-- End Signup Form -->
+                    </div>
 
-                    <!-- Signup Form -->
                     <div class="signup form-peice switched">
                         <form class="signup-form" action="#" method="post">
                             <div class="form-group">
@@ -96,11 +91,9 @@
                                 <a href="#" class="switch">Iniciar sesión</a>
                             </div>
                         </form>
-                    </div><!-- End Login Form -->
-
+                    </div>
                 </div>
         </section>
-    </div>
     </div>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

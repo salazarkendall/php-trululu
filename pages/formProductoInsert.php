@@ -1,7 +1,7 @@
 <head>
     <link href="../styles/formsButtons.css" rel="stylesheet" />
     <link href="../styles/checkout.css" rel="stylesheet" />
-    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
+    <link href="../images/logo-trululu-store.png" type="image" rel="shortcut icon" />
 </head>
 
 <?php
