@@ -13,16 +13,17 @@ $idRol = $_SESSION['idRol'];
 
 include '../conexion.php';
 include '../pages/catalogoSP/getAllMarcas.php';
+include '../pages/carritoSP/getCarritoCount.php';
 
-$curs = oci_new_cursor($conn);
-$getCarritoCount = oci_parse($conn, "begin GET_CARRITO_COUNT(:CM, :ID_USUARIO); end;");
-oci_bind_by_name($getCarritoCount, ":CM", $curs, -1, OCI_B_CURSOR);
-oci_bind_by_name($getCarritoCount, ":ID_USUARIO", $idUsuario, 32);
-oci_execute($getCarritoCount);
-oci_execute($curs);
+$cantidadProductos = get_carrito_count($conn, $idUsuario);
 
-$count = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS);
-$cantidadProductos = $count['COUNT(*)'];
+
+function closeSession()
+{
+    unset($_SESSION['Conectado']);
+    session_destroy();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +35,7 @@ $cantidadProductos = $count['COUNT(*)'];
     <meta name="description" content="Tienda de caramelos Trululu" />
     <meta name="author" content="" />
     <title>Trululu</title>
+    <!-- Custom Styles -->
     <link href="../styles/styles.css" rel="stylesheet" />
     <link href="../styles/custom.css" rel="stylesheet" />
     <!-- Bootstrap Icons -->
@@ -83,30 +85,64 @@ $cantidadProductos = $count['COUNT(*)'];
                             ?>
                         </ul>
                     </li>
+                    <!-- Dropdown de marcas -->
+
+                    <?php
+                    if ($idRol == 1 || $idRol == 2) {
+                        echo '<li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opciones</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">';
+                        echo '<a class="dropdown-item" href="/trululu/pages/tablaProductos.php">Tabla Productos</a>';
+                        echo '<a class="dropdown-item" href="/trululu/pages/tablaEntregas.php">Tabla Entregas</a>';
+                        if ($idRol == 1) {
+                            echo '<a class="dropdown-item" href="/trululu/pages/tablaUsuarios.php">Tabla Usuarios</a>';
+                            echo '<a class="dropdown-item" href="/trululu/pages/tablaErrores.php">Tabla Errores</a> ';
+                        }
+                        echo '</ul>
+                            </li>';
+                    }
+                    ?>
                 </ul>
+                <!-- Nombre del Usuario -->
+                <?php
+                echo '<ul class="navbar-nav mb-2 mr-5 mb-lg-0 ms-lg-4">
+                        <li>Bienvenido, ' . $nombreUsuario . '.</li>
+                    </ul>';
+                ?>
                 <!-- Boton del carrito -->
-                <button class="btn btn-outline-trululu" type="submit">
-                    <a href="../pages/carrito.php">
+                <button class="btn btn-outline-trululu" type="submit" id="btnCarrito">
                     <i class="bi-cart-fill me-1"></i>
                     Carrito
-                </a>
                     <span class="badge bg-trululu text-white ms-1 rounded-pill">
                         <?php echo $cantidadProductos ?>
                     </span>
                 </button>
+                <!-- Boton de Salir -->
+                <button class="btn">
+                    <a id="logout" class="btn btn-outline-trululu">Cerrar Sesión</a>
+                </button>
+
             </div>
         </div>
     </nav>
 
     <script src="/trululu/vendor/jquery/jquery.min.js"></script>
+    <script src="../scripts/logout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
+        // Funcion predeterminada del menu
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
-    </script>
 
+        // Redirecciona a la pagina del carrito
+        $("#btnCarrito").click(function(e) {
+            e.preventDefault();
+            console.log('funciona')
+            window.location.href = "/trululu/pages/carrito.php";
+        })
+    </script>
 </body>

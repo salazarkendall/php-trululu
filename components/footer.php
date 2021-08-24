@@ -1,3 +1,7 @@
+<?php
+// include '../pages/catalogoSP/getAllMarcas.php';
+?>
+
 <div class="row justify-content-center mt-5">
     <footer class="footer col-md-6">
         <div class="bg-dark">
@@ -24,12 +28,21 @@
                     </h6>
                     <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 125px; height: 2px" />
                     <ul class="list-unstyled">
-                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=1">Componentes</a></li>
+                        <!-- <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=1">Componentes</a></li>
                         <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=2">Herramientas</a></li>
                         <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=3">Impresoras 3D</a></li>
                         <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=4">Cortadores Láser</a></li>
                         <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=5">Raspberry Pi</a></li>
-                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=6">Inalámbricos</a></li>
+                        <li class="mb-1"><a href="/stocktronic/pages/catalogo.php?q=6">Inalámbricos</a></li> -->
+                        <?php
+                        $data = get_all_marcas($conn);
+                        while (($row = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                            $idMarca = $row['ID_CATEGORIA'];
+                            $productoMarca = $row['TIPO'];
+                            echo "<li class='mb-1'><a href='/stocktronic/pages/catalogo.php?q=$idMarca'>$productoMarca</a></li>";
+                        }
+                        ?>
+
                     </ul>
                 </div>
 
@@ -81,7 +94,7 @@
             <a class="ml-1 mr-1">Reembolsos</a> |
             <a class="ml-1">Localización</a>
             <p class="ml-5 text-muted" style="font-size: 14px">
-                Costa Rica | Copyright &copy; 2021 Stocktronic Inc.
+                Costa Rica | Copyright &copy; 2021 Tienda Trululu.
             </p>
         </div>
     </footer>

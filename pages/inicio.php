@@ -1,6 +1,6 @@
 <head>
     <link href="../styles/catalogo.css" rel="stylesheet" />
-    <link href="../images/isotipo.svg" type="image" rel="shortcut icon" />
+    <link href="/trululu/images/logo-trululu-store.png" type="image" rel="shortcut icon" />
 </head>
 
 <?php
@@ -12,23 +12,21 @@ $i = 0;
 ?>
 
 <body>
-    <div class="container header-top">
-        <h1 class="text-center main-title">
-            Los productos que amas <br /> a un clic de distancia
-        </h1>
-        <!-- <h4 class="text-center mt-4 main-subtitle" style="color: gray">
-            No dudes en consultarnos
-        </h4> -->
-        <div class='col text-center'>
-            <a href='#seccionProductos' class="cupertino-link">Conocer productos</a>
+
+    <!-- Header y saludo -->
+    <header class="bg-dark py-5 header_bg-image">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Tienda Trululu <i class="bi bi-emoji-smile"></i></h1>
+                <p class="lead fw-normal text-white-50 mb-0">Encuentra todos nuestros productos aquí</p>
+            </div>
         </div>
-    </div>
+    </header>
 
     <section class="py-5 product-section" id="seccionProductos">
         <div class="container px-4 px-lg-5 mt-4">
             <h1 class="text-center mt-5 main-title">Explore nuestros productos</h1>
             <hr>
-            <!-- <div class="row gx-4 gx-lg-5 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center"> -->
             <div class="row gx-4 gx-lg-5 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
                 <?php
                 $data = get_products_random($conn);
@@ -44,7 +42,6 @@ $i = 0;
                                         <i class="fa fa-shopping-cart"></i>
                                     </button>';
                     echo "<div class='product-card mb-5'>
-                            <div class='badge'>Nuevo</div>
                             <div class='product-tumb'>
                                 <img src='$productoImagen' alt=''>
                             </div>

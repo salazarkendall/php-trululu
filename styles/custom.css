@@ -4,7 +4,7 @@
 
 .header_bg-image {
 	background-image: linear-gradient(to right bottom, #f4038062, #cfe96798),
-		url('../img/ref01.jpg');
+		url('../images/ref01.jpg');
 	background-size: cover;
 	background-position: center;
 	height: 250px;
