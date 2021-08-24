@@ -1,5 +1,4 @@
 <?php
-// Import the conexion.php
 include '../../conexion.php';
 
 $pasar = $_GET['ajaxid'];
@@ -8,12 +7,10 @@ $curs2 = oci_new_cursor($conn);
 $getDetalleOrden = oci_parse($conn, "begin GET_DETALLE_ORDENES(:CM, $pasar); end;");
 oci_bind_by_name($getDetalleOrden, ":CM", $curs2, -1, OCI_B_CURSOR);
 
-// Execute de stored procedure
 oci_execute($getDetalleOrden);
 oci_execute($curs2);
 
 while (($row2 = oci_fetch_array($curs2, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-    // This is how you bind the values of the array to a variable
     $idDetalle = $row2['ID_DETALLEORDEN'];
     $urlImagen = $row2['URL_IMAGEN'];
     $precio = $row2['PRECIO'];

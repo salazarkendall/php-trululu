@@ -111,7 +111,7 @@ oci_execute($curs3);
                                 </select>
                             </div>
                             <div class="form-group col-sm-6">
-                                <label id="categoriaVal">Categoría</label>
+                                <label id="categoriaVal">Marca</label>
                                 <select id="selectCategoria" name="categoria" class="form-control">
                                     <?php
                                     while (($row2 = oci_fetch_array($curs2, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {

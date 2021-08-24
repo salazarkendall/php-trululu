@@ -5,26 +5,19 @@
 </head>
 
 <?php
-// Import header.php and conexion.php
 include "../components/header.php";
 include '../conexion.php';
 
-// Create the memory cursors to iterate through table values
 $curs = oci_new_cursor($conn);
 $curs2 = oci_new_cursor($conn);
 
-// Call the stored procedure to bring the list of proveedores
 $getAllProveedores = oci_parse($conn, "begin GET_ALL_PROVEEDORES(:CM); end;");
 
-// Call the stored procedure to bring the list of categorias
 $getAllCategorias = oci_parse($conn, "begin GET_ALL_CATEGORIAS(:CM); end;");
 
-
-// Bind the memory cursors into the stored procedures
 oci_bind_by_name($getAllProveedores, ":CM", $curs, -1, OCI_B_CURSOR);
 oci_bind_by_name($getAllCategorias, ":CM", $curs2, -1, OCI_B_CURSOR);
 
-// Execute the stored procedures and the memory cursor
 oci_execute($getAllProveedores);
 oci_execute($curs);
 
@@ -77,7 +70,7 @@ oci_execute($curs2);
                                 </select>
                             </div>
                             <div class="form-group col-sm-6">
-                                <label id="categoriaVal">Categoría</label>
+                                <label id="categoriaVal">Marca</label>
                                 <select id="selectCategoria" name="categoria" class="form-control">
                                     <?php
                                     while (($row2 = oci_fetch_array($curs2, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
@@ -103,12 +96,8 @@ oci_execute($curs2);
     include '../components/footer.php';
     ?>
 
-    <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- This script calls the ajax to update producto -->
     <script src="../scripts/formProducto.js"></script>
 
 </body>
-
-<!-- We'll need to free the statments and close the conn here -->

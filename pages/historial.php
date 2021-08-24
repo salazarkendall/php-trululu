@@ -11,28 +11,19 @@
 </head>
 
 <?php
-// The first thing is always start the session
-// session_start();
-
-// Import header.php and conexion.php
 include "../components/header.php";
 include '../conexion.php';
 
-// Get the user id and the user name from the session
 $idUsuario = $_SESSION['idUsuario'];
 $nombreUsuario = $_SESSION['nombreUsuario'];
 
-// Call the stored procedure to bring the bougth historial of the user
 $getOrdenes = oci_parse($conn, "begin GET_ORDENES(:CM, :ID_USUARIO); end;");
 
-// Create a memory cursor to iterate through the stored procedure
 $curs = oci_new_cursor($conn);
 
-// Bind the memory cursor and the user id into the stored procedure
 oci_bind_by_name($getOrdenes, ":CM", $curs, -1, OCI_B_CURSOR);
 oci_bind_by_name($getOrdenes, ":ID_USUARIO", $idUsuario, 32);
 
-// Execute the stored procedured and the memory cursor
 oci_execute($getOrdenes);
 oci_execute($curs);
 ?>
@@ -63,13 +54,11 @@ oci_execute($curs);
                             <tbody>";
 
         while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-            // Fetch the table values into variables
             $idOrden = $row['ID_ORDEN'];
             $fecOrden = $row['FEC_ORDEN'];
             $montoTotal = $row['MONTO_TOTAL'];
             $numTarjeta = $row['NUM_TARJETA'];
             $metodoPago = $row['NOMBRE'];
-            // Print the table rows
             echo "<tr class='alert text-center' role='alert'>
                     <td scope='row' name='identificador'>$idOrden</td>
                     <td>$metodoPago</td>
@@ -136,21 +125,16 @@ oci_execute($curs);
 
     <script src="../scripts/historial.js"></script>
 
-    <!-- Scripts for the table pagination -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Script for the buttons in general -->
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
 
-    <!-- This one is for the Excel button -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 
-    <!-- This two are for the PDF button -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 
-    <!-- This two are for the Print button -->
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
 

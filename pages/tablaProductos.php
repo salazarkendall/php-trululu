@@ -9,20 +9,15 @@
 </head>
 
 <?php
-// Import header.php and conexion.php
 include '../components/header.php';
 include '../conexion.php';
 
-// Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);
 
-// Call the stored procedure to bring the list of products
 $getAllProductos = oci_parse($conn, "begin GET_ALL_PRODUCTOS(:CM); end;");
 
-// Bind the memory cursors into the stored procedure
 oci_bind_by_name($getAllProductos, ":CM", $curs, -1, OCI_B_CURSOR);
 
-// Execute the stored procedures and the memory cursor
 oci_execute($getAllProductos);
 oci_execute($curs);
 ?>
@@ -54,7 +49,6 @@ oci_execute($curs);
                         <tbody>
                             <?php
                             while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                                // Atributos from the table productos inner join categoria
                                 $idProducto = $row['ID_PRODUCTO'];
                                 $nombre = $row['NOMBRE'];
                                 $descripcion = $row['DESCRIPCION'];
@@ -64,7 +58,6 @@ oci_execute($curs);
                                 $idProveedor = $row['ID_PROVEEDOR'];
                                 $idCategoria = $row['ID_CATEGORIA'];
                                 $tipo = $row['TIPO'];
-                                // Printing the values into the table
                                 echo '<tr class="text-center">
                                         <th>' . $idProducto . '</th>
                                         <td scope="row">' . $nombre . '</td>
@@ -87,31 +80,24 @@ oci_execute($curs);
     </div>
 
     <?php
-    // Import the footer.php
     include '../components/footer.php';
     ?>
 
-    <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="../scripts/tablaProductos.js"></script>
     <script src="../scripts/historial.js"></script>
 
-    <!-- Scripts for the table pagination -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Script for the buttons in general -->
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
 
-    <!-- This one is for the Excel button -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 
-    <!-- This two are for the PDF button -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 
-    <!-- This two are for the Print button -->
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
 

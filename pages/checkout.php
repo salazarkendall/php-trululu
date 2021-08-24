@@ -6,26 +6,20 @@
 </head>
 
 <?php
-// If you got an include and a header() the header by force needs to be the first line code
 include "../components/header.php";
 
-// Get the user id from the session
 $idUsuario = $_SESSION['idUsuario'];
 
-// Create a memory cursor to iterate through table values
 $curs = oci_new_cursor($conn);
 $curs2 = oci_new_cursor($conn);
 
-// Call the stored procedure to bring all metodos de pago
 $getAllMetodoPago = oci_parse($conn, "begin GET_ALL_METODOPAGO(:CM); end;");
 $getCarritos = oci_parse($conn, "begin GET_CARRITOS(:CM, :ID_USUARIO); end;");
 
-// Pass the memory cursor into the stored procedure, Note: Idk what -1 does, but leave it there hehe
 oci_bind_by_name($getAllMetodoPago, ":CM", $curs, -1, OCI_B_CURSOR);
 oci_bind_by_name($getCarritos, ":CM", $curs2, -1, OCI_B_CURSOR);
 oci_bind_by_name($getCarritos, ":ID_USUARIO", $idUsuario, -1);
 
-// Execute the stored procedured and the memory cursor
 oci_execute($getAllMetodoPago);
 oci_execute($getCarritos);
 oci_execute($curs);
@@ -46,15 +40,12 @@ oci_execute($curs2);
                     <div class="products">
                         <h3 class="title">Checkout</h3>
                         <?php
-                        // Fetch the array of the first stored procedure to create a new option for each metodo de pago
                         while (($row2 = oci_fetch_array($curs2, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                            // Fetch the table values into variables
                             $cantidadCarrito = $row2['CANTIDAD'];
                             $nombreProducto = $row2['NOMBRE'];
                             $descripcionProducto = $row2['DESCRIPCION'];
                             $precioProducto = $row2['PRECIO'];
 
-                            // Print the items into the checkout page for user comfort
                             echo '<div class="item">
                                     <span class="price">₡' . $precioProducto * $cantidadCarrito . '</span>
                                         <p class="item-name">' . $nombreProducto . ' (' . $cantidadCarrito . ')' . '</p>

@@ -2,14 +2,12 @@
     <title>Usuarios - Trululu</title>
     <link href="../styles/checkout.css" rel="stylesheet" />
     <link href="../images/logo-trululu-store.png" type="image" rel="shortcut icon" />
-    <!-- This link reference here is for the table pagination -->
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet'>
     <link href='https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css' rel='stylesheet'>
 </head>
 
 <?php
-// Import header.php and conexion.php
 include '../components/header.php';
 include '../conexion.php';
 
@@ -48,7 +46,6 @@ oci_execute($curs);
                         <tbody>
                             <?php
                             while (($row = oci_fetch_array($curs, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                                // Atributos from the table productos inner join categoria
                                 $idUsuario = $row['ID_USUARIO'];
                                 $nombreUsuario = $row['NOMBRE'];
                                 $primerApellido = $row['APELLIDO1'];
@@ -76,31 +73,24 @@ oci_execute($curs);
     </div>
 
     <?php
-    // Import the footer.php
     include '../components/footer.php';
     ?>
 
-    <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="../scripts/tablaUsuarios.js"></script>
     <script src="../scripts/historial.js"></script>
 
-    <!-- Scripts for the table pagination -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Script for the buttons in general -->
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
 
-    <!-- This one is for the Excel button -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 
-    <!-- This two are for the PDF button -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 
-    <!-- This two are for the Print button -->
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
 

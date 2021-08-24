@@ -103,44 +103,22 @@ oci_execute($curs);
                             <div class="col-md-5">
                                 <table class="table table-borderless">
                                     <tbody class="totals">
-                                        <tr>
-                                            <td>
-                                                <div class="text-left"> <span class="text-muted">Subtotal</span> </div>
-                                            </td>
-                                            <td>
-                                                <?php echo "<div class='text-right'> <span>₡$totalInfoPago</span> </div>"; ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                        <tr>
-                                            <td>
-                                                <div class="text-left"> <span class="text-muted">Impuestos:</span> </div>
-                                            </td>
-                                            <td>
-                                                <?php
-                                                $tax = $totalInfoPago * 0.13;
-                                                echo "<div class='text-right'> <span class='text-danger'>₡$tax</span> </div>";
-                                                ?>
-                                            </td>
-                                        </tr>
                                         <tr class="border-top border-bottom">
                                             <td>
-                                                <div class="text-left"> <span class="font-weight-bold">Monto total</span> </div>
+                                                <div class="text-left"> <span class="font-weight-bold">Monto total (Iva incluido)</span> </div>
                                             </td>
                                             <td>
                                                 <?php
-                                                $totalInfoPago += $tax;
-                                                // I did a trick and didn't print the total orden 'cause it's wrong
+                                                // $totalInfoPago += $tax;
                                                 echo "<div class='text-right'> <span class='font-weight-bold'>₡$totalInfoPago</span> </div>";
                                                 ?>
-
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <p class="font-weight-bold mb-0">Gracias por confiar en nosotros!</p> <span>Tienda Trululu</span>
+                        <a href="../pages/inicio.php" class="btn btn-outline-trululu">Regresar</a>
                     </div>
                     <div class="d-flex justify-content-between footer p-3"> <span>Regresar a la<a href="inicio.php"> página principal</a></span> <span>Agosto, 2021</span> </div>
                 </div>

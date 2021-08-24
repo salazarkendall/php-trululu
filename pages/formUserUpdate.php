@@ -9,7 +9,6 @@ include "../components/header.php";
 include '../conexion.php';
 include './usuarioSP/getTipos.php';
 include './usuarioSP/getUser.php';
-// include './usuarioSP/updateUsuario.php';
 
 $idParametro = $_GET['q'];
 
@@ -104,13 +103,8 @@ $tipoUsuario = $infoUsuario['ID_ROL'];
     <?php
     include '../components/footer.php';
     ?>
-
-    <!-- Add sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- This script calls the ajax to update producto -->
     <script src="../scripts/formUsuario.js"></script>
 
 </body>
-
-<!-- We'll need to free the statments and close the conn here -->
