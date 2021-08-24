@@ -169,5 +169,3 @@ oci_execute($curs2);
     <script src="../scripts/checkout.js"></script>
 
 </body>
-
-<!-- We'll need to free the statments and close the conn here -->

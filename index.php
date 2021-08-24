@@ -3,105 +3,80 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Tienda Trululu - Inicio</title>
-
-    <link href="images/logo-trululu-store.png" type="image" rel="shortcut icon" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,600" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/registro.css">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Tienda Trululu</title>
+    <link rel="stylesheet" href="/trululu/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-light">
-
-    <div class="container">
-
-        <section id="formHolder" class="margin-top">
-            <div class="row">
-
-                <div class="col-sm-6 brand">
-                    <a href="#" class="logo">ST <span>.</span></a>
-
-                    <div class="heading">
-                        <h2>Tienda Trululu</h2>
-                        <p>La elección correcta</p>
-                    </div>
-
-                    <div class="success-msg">
-                        <p>Great! You are one of our members now</p>
-                        <a href="#" class="profile">Your Profile</a>
-                    </div>
+<body>
+    <img src="/trululu/images/Logo-Trululu.png" class="logo" alt="">
+    <main>
+        <div class="main_container">
+            <div class="bg_box">
+                <div class="bg_box_login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para entrar en la página</p>
+                    <button id="btn_on_session" class="btn">Iniciar Sesión</button>
                 </div>
-
-                <div class="col-sm-6 form">
-
-                    <div class="login form-peice">
-                        <form class="login-form" action="#" method="post">
-                            <div class="form-group">
-                                <label for="">Correo Electrónico</label>
-                                <input type="text" name="" id="emailLogin" class="emailLogin">
-                                <span class="error"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="">Contraseña</label>
-                                <input type="password" name="" id="passwordLogin" class="passwordLogin">
-                                <span class="error"></span>
-                                <span class="error" id="loginHint"></span>
-                            </div>
-                            <div class="CTA">
-                                <input type="submit" value="Iniciar Sesión" id="btnLogin" class="btn" />
-                                <a href="#" class="switch">Crear una cuenta</a>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="signup form-peice switched">
-                        <form class="signup-form" action="#" method="post">
-                            <div class="form-group">
-                                <label for="">Nombre</label>
-                                <input type="text" name="name" id="name" class="name">
-                                <span class="error"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Primer Apellido</label>
-                                <input type="text" name="lastName1" id="lastName1" class="lastName1">
-                                <span class="error"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Segundo Apellido</label>
-                                <input type="text" name="lastName2" id="lastName2" class="lastName2">
-                                <span class="error"></span>
-                            </div>
-                            <div class=" form-group">
-                                <label for="">Correo Electrónico</label>
-                                <input type="email" name="email" id="email" class="email" required>
-                                <span class="error"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Contraseña</label>
-                                <input type="password" name="password" id="password" class="password">
-                                <span class="error"></span>
-                            </div>
-                            <div class="CTA">
-                                <input type="submit" id="btnRegister" value="Crear Cuenta" class="btn" />
-                                <a href="#" class="switch">Iniciar sesión</a>
-                            </div>
-                        </form>
-                    </div>
+                <div class="bg_box_register">
+                    <h3>¿Aún no tienes una cuenta?</h3>
+                    <p>Registrate para iniciar sesión</p>
+                    <button class="btn" id="btn_on_register">Registrarse</button>
                 </div>
-        </section>
-    </div>
+            </div>
 
+            <div class="container_login-register">
+                <!-- Login -->
+                <form method="POST" class="form_login">
+                    <h2>Iniciar Sesión</h2>
+
+                    <input type="text" name="emailLogin" id="emailLogin" class="field" placeholder="Correo Electrónico">
+                    <span class="error"></span>
+
+                    <input type="password" name="passwordLogin" id="passwordLogin" class="passwordLogin" placeholder="Contraseña">
+                    <span class="error"></span>
+                    <span class="error" id="loginHint"></span>
+
+                    <div class="CTA">
+                        <input type="submit" value="Iniciar Sesión" id="btnLogin" class="btn" />
+                    </div>
+                </form>
+
+                <!-- Registro -->
+                <form method="POST" class="form_register">
+                    <h2>Registrarse</h2>
+                    <input type="text" name="name" id="name" class="name" placeholder="Nombre">
+                    <span class="error"></span>
+
+                    <input type="text" name="lastName1" id="lastName1" class="lastName1" placeholder="Primer Apellido">
+                    <span class="error"></span>
+
+                    <input type="text" name="lastName2" id="lastName2" class="lastName2" placeholder="Segundo Apellido">
+                    <span class="error"></span>
+
+                    <input type="email" name="email" id="email" class="email" required placeholder="Correo Electrónico">
+                    <span class="error"></span>
+
+                    <input type="password" name="password" id="password" class="password" placeholder="Contraseña">
+                    <span class="error"></span>
+
+                    <div class="CTA">
+                        <input type="submit" id="btnRegister" value="Crear Cuenta" class="btn" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="/trululu/scripts/loginScript.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <script src="./scripts/loginSP.js"></script>
     <script src="scripts/index.js"></script>
-
 </body>
 
 </html>

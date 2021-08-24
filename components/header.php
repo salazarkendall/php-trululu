@@ -113,7 +113,7 @@ function closeSession()
                     </ul>';
                 ?>
                 <!-- Boton del carrito -->
-                <button class="btn btn-outline-trululu" type="submit" id="btnCarrito">
+                <button class="btn btn-outline-trululu mr-2" type="submit" id="btnCarrito">
                     <i class="bi-cart-fill me-1"></i>
                     Carrito
                     <span class="badge bg-trululu text-white ms-1 rounded-pill">
@@ -121,13 +121,16 @@ function closeSession()
                     </span>
                 </button>
                 <!-- Boton de Salir -->
-                <button class="btn">
-                    <a id="logout" class="btn btn-outline-trululu">Cerrar Sesión</a>
+                <button class="btn btn-outline-trululu ">
+                    <a id="logout" class="">Cerrar Sesión</a>
                 </button>
 
             </div>
         </div>
     </nav>
+
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="/trululu/vendor/jquery/jquery.min.js"></script>
     <script src="../scripts/logout.js"></script>

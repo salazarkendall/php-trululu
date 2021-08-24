@@ -29,7 +29,7 @@ oci_execute($curs);
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mt-5">
                 <h2 class="heading-section">Lista de usuarios</h2>
-                <a href="formUserInsert.php"><button class="btn btn-primary mt-3 mb-4">Agregar Usuario</button></a>
+                <a href="formUserInsert.php"><button class="btn btn-outline-trululu mt-3 mb-4">Agregar Usuario</button></a>
             </div>
         </div>
         <div class="row">

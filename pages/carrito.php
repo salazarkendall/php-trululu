@@ -164,10 +164,7 @@ oci_execute($curs2);
         $_SESSION['total'] = $montoTotal;
         // Print the total amount into the right bar
         echo '<p>₡<span id="total_cart_amt">' . $montoTotal . '</span></p>';
-
-
         echo '</div>
-                            <!-- This button will only redirect to checkout.php -->
                             <a href="checkout.php">
                                 <button class="btn btn-primary text-uppercase">Comprar</button>
                             </a>
@@ -180,8 +177,7 @@ oci_execute($curs2);
     } else {
         echo '<div id="outer" class="container">
                 <div id="inner">
-                    <img class="img-responsive" src="../images/isotipoDark.svg" alt="logo" />
-                    <h1 class="text-center mt-3">Carrito de Compras</h1>
+                    <h1 class="text-center mt-3">Oops!</h1>
                     <p class="text-center">No has agregado ningún artículo</p>
                     <a class="d-flex justify-content-center fs" href="inicio.php">Empecemos!</a>
                 </div>

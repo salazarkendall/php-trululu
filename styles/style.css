@@ -7,12 +7,12 @@
 }
 
 body {
-	/* background-image: url(./Content/Bg-Trululu.jpg); */
-	/* background-size: cover;
+	background-image: url(../../trululu/images/Bg-Trululu.jpg);
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-attachment: fixed; */
-	background-color: rgb(0, 0, 0);
+	background-attachment: fixed;
+	/* background-color: rgb(0, 0, 0); */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
