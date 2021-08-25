@@ -1,4 +1,3 @@
-// "Método Pago" select variable
 const idVal = document.getElementById('idVal');
 let inputID = document.getElementById('idProducto');
 
@@ -23,21 +22,18 @@ let selectProveedor = document.getElementById('selectProveedor');
 const categoriaVal = document.getElementById('categoriaVal');
 let selectCategoria = document.getElementById('selectCategoria');
 
-// Restoration variables, this works for the messages
 const reparacionNom = nomVal.innerText;
 const reparacionDesc = descVal.innerText;
 const repacionURL = urlVal.innerText;
 const reparacionPrecio = precioVal.innerText;
 const reparacionCant = cantVal.innerText;
 
-// Listeners for the changes in the inputs
 inputNombre.addEventListener('change', getValueNombre);
 inputDesc.addEventListener('change', getValueDescripcion);
 inputURL.addEventListener('change', getValueURL);
 inputPrecio.addEventListener('change', getValuePrecio);
 inputCant.addEventListener('change', getValueCantidad);
 
-// When something is digited into a input the functions cheks if the button need to be disable or not
 $(document).ready(function () {
 	$('#btnInsert').attr('disabled', true);
 	let regexURL = /^(https?|http):\/\/[^\s$.?#].[^\s]*$/;
@@ -56,7 +52,6 @@ $(document).ready(function () {
 	});
 });
 
-// When something is digited into a input the functions cheks if the button need to be disable or not
 $(document).ready(function () {
 	$('#btnUpdate').attr('disabled', false);
 	let regexURL = /^(https?|http):\/\/[^\s$.?#].[^\s]*$/;
@@ -88,7 +83,6 @@ function getValueNombre(e) {
 		let withoutWS = noStartWS.replace(/  +/g, ' ');
 		inputNombre.value = withoutWS;
 
-		// If there isn't 16 caracteres print a message into the label
 		if (inputNombre.value.length < 5) {
 			nomVal.innerText = reparacionNom;
 			let validacion = ' Mínimo 5 Caracteres (*)';
@@ -103,7 +97,6 @@ function getValueNombre(e) {
 	}
 }
 
-// This functions cheks if the input is blank or if the length < 16
 function getValueDescripcion(e) {
 	if (e.target.value.trim() == 0) {
 		descVal.innerText = reparacionDesc;
@@ -117,7 +110,6 @@ function getValueDescripcion(e) {
 		let withoutWS = noStartWS.replace(/  +/g, ' ');
 		inputDesc.value = withoutWS;
 
-		// If there isn't 16 caracteres print a message into the label
 		if (inputDesc.value.length < 5) {
 			descVal.innerText = reparacionDesc;
 			let validacion = ' Mínimo 5 Caracteres (*)';
@@ -132,7 +124,6 @@ function getValueDescripcion(e) {
 	}
 }
 
-// This functions cheks if the input is blank or if the length < 16
 function getValueURL(e) {
 	if (e.target.value.trim() == 0) {
 		urlVal.innerText = repacionURL;
@@ -146,7 +137,6 @@ function getValueURL(e) {
 		let withoutWS = noStartWS.replace(/\s/g, '');
 		inputURL.value = withoutWS;
 
-		// If there isn't 16 caracteres print a message into the label
 		if (inputURL.value.length < 5) {
 			urlVal.innerText = repacionURL;
 			let validacion = ' No Válido';
@@ -169,7 +159,6 @@ function getValueURL(e) {
 	}
 }
 
-// This functions cheks if the input is blank or if the length < 16
 function getValuePrecio(e) {
 	if (e.target.value.trim() == 0) {
 		precioVal.innerText = reparacionPrecio;
@@ -197,7 +186,6 @@ function getValuePrecio(e) {
 	}
 }
 
-// This functions cheks if the input is blank or if the length < 16
 function getValueCantidad(e) {
 	if (e.target.value.trim() == 0) {
 		cantVal.innerText = reparacionCant;
@@ -275,7 +263,6 @@ $('#btnInsert').click(function (e) {
 	});
 });
 
-// This functions calls an ajax to insert the payment information
 $('#btnUpdate').click(function (e) {
 	e.preventDefault();
 	$.ajax({

@@ -1,4 +1,3 @@
-// When the button "Detalles" is clicked it calls an ajax that calls an php that returns the table in the modal
 $(".btnDetalles").click(function () {
     var id = $(this).attr("data-id");
     $.ajax({

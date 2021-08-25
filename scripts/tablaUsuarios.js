@@ -1,5 +1,4 @@
 $('.btnDelete').click(function () {
-	// First calls a pop-up message
 	Swal.fire({
 		icon: 'warning',
 		title: 'Atención',
@@ -9,19 +8,15 @@ $('.btnDelete').click(function () {
 		confirmButtonText: `Eliminar`,
 		cancelButtonText: 'Cancelar',
 	}).then((result) => {
-		// If the user confirm the action, then it calls an AJAX
 		if (result.isConfirmed) {
-			// Important! This is the only way you could send an id that comes from an array
 			var id = $(this).attr('data-id');
 			console.log(id);
-			// Start the AJAX
 			$.ajax({
 				type: 'GET',
 				url: '../pages/usuarioSP/deleteUsuario.php',
 				data: {
 					idUsuario: id,
 				},
-				// If it succeded it sends a pop-up to the user
 				success: function (data) {
 					setTimeout(
 						Swal.fire({
@@ -51,7 +46,6 @@ $('.btnDelete').click(function () {
 						}),
 						3000
 					);
-					// Afther 3s the page will reload itsealf
 					setTimeout(function () {
 						window.location = 'tablaUsuarios.php';
 					}, 3000);

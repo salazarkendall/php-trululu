@@ -55,7 +55,6 @@ function getValueNombre(e) {
 		let withoutWS = noStartWS.replace(/  +/g, ' ');
 		inputNombre.value = withoutWS;
 
-		// If there isn't 16 caracteres print a message into the label
 		if (inputNombre.value.length < 2) {
 			nomVal.innerText = reparacionNom;
 			let validacion = ' Mínimo 5 Caracteres (*)';
@@ -82,7 +81,6 @@ function getValueApellido1(e) {
 		let withoutWS = noStartWS.replace(/  +/g, ' ');
 		inputApellido1.value = withoutWS;
 
-		// If there isn't 16 caracteres print a message into the label
 		if (inputApellido1.value.length < 2) {
 			appVal.innerText = reparacionApp;
 			let validacion = ' Mínimo 5 Caracteres (*)';
@@ -109,7 +107,6 @@ function getValueApellido2(e) {
 		let withoutWS = noStartWS.replace(/  +/g, ' ');
 		inputApellido2.value = withoutWS;
 
-		// If there isn't 16 caracteres print a message into the label
 		if (inputApellido2.value.length < 2) {
 			app2Val.innerText = reparacionApp2;
 			let validacion = ' Mínimo 5 Caracteres (*)';
@@ -136,7 +133,6 @@ function getValueEmail(e) {
 		let withoutWS = noStartWS.replace(/\s/g, '');
 		inputEmail.value = withoutWS;
 
-		// If there isn't 16 caracteres print a message into the label
 		if (inputEmail.value.length < 5) {
 			emailVal.innerText = reparacionEmail;
 			let validacion = ' No Válido';
@@ -171,7 +167,6 @@ function getValuePassword(e) {
 		let withoutWS = noStartWS.replace(/  +/g, ' ');
 		inputPassword.value = withoutWS;
 
-		// If there isn't 16 caracteres print a message into the label
 		if (inputPassword.value.length < 5) {
 			passVal.innerText = reparacionPassword;
 			let validacion = ' Mínimo 5 Caracteres (*)';
@@ -235,7 +230,6 @@ $('#btnInsert').click(function (e) {
 		},
 	});
 });
-// This functions calls an ajax to insert the payment information
 $('#btnUpdate').click(function (e) {
 	e.preventDefault();
 	$.ajax({

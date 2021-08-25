@@ -1,5 +1,4 @@
 $("#logout").click(function () {
-    // First it sends a pop-up to the user
     Swal.fire({
         icon: 'warning',
         title: 'Cerrar Sesión?',
@@ -8,13 +7,10 @@ $("#logout").click(function () {
         confirmButtonText: `Cerrar`,
         cancelButtonText: 'Cancelar',
     }).then((result) => {
-        // If the user confirm the action the continue the execution
         if (result.isConfirmed) {
-            // The AJAX is called
             $.ajax({
                 type: "GET",
                 url: "../pages/usuarioSP/logout.php",
-                // If it succeded then it sends a pop-up to the user
                 success: function (data) {
                     setTimeout(Swal.fire({
                         icon: 'info',
@@ -25,7 +21,6 @@ $("#logout").click(function () {
                         allowEscapeKey: false,
                         allowOutsideClick: false,
                         timer: 2000,
-                        // This function works for printing the typical loading spiral
                         didOpen: () => {
                             Swal.showLoading()
                             timerInterval = setInterval(() => {
@@ -42,7 +37,6 @@ $("#logout").click(function () {
                             clearInterval(timerInterval)
                         }
                     }), 2000);
-                    // After 3s the page is redirected to confirmacion.php
                     setTimeout(function () {
                         window.location = '../index.php';
                     }, 2000);

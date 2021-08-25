@@ -1,7 +1,5 @@
-// This function trigger when you add a product to the cart
 function addCart(nombre) {
     Swal.fire({
-        // bottom-start, bottom-end, top-start
         position: "top-end",
         icon: "success",
         title: `${nombre} agregado al carrito`,
@@ -11,7 +9,6 @@ function addCart(nombre) {
     });
 }
 
-// This function will trigger when you subtract a product quantity
 function minusCart(nombre) { 
     Swal.fire({
         // bottom-start, bottom-end, top-start
@@ -24,10 +21,8 @@ function minusCart(nombre) {
     });
 }
 
-// This function will trigger when you add a product quantity
 function plusCart(nombre) {
     Swal.fire({
-        // bottom-start, bottom-end, top-start
         position: "top-end",
         icon: "success",
         title: `Se agregó un/a ${nombre} al carrito`,
@@ -37,10 +32,6 @@ function plusCart(nombre) {
     });
 }
 
-/* The following functions prevent the page from reload when the product name is clicked
-   If you find an easier way just change it :) */
-
-// The next six are for the product names
 $("#productName1").on("click", function(e) {
     e.preventDefault();
     var url = $(this).attr("href");
