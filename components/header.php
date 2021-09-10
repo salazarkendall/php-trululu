@@ -62,12 +62,6 @@ function closeSession()
                             Productos
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/trululu/pages/contactenos.php">
-                            <i class="bi bi-info-circle-fill"></i>
-                            Contáctenos
-                        </a>
-                    </li>
                     <!-- Dropdown de marcas -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Marcas</a>

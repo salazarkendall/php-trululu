@@ -26,13 +26,13 @@ $categoria = $_GET['q'];
     $imagen = $imagenCategoria['IMAGEN_CATEGORIA'];
 
     echo "
-    <h3 class='text-center header-top subtitle' style='color:orange'></h3>
+    <h3 class='text-center header-top subtitle></h3>
     <div class='row justify-content-center header-top'>
         <div class='text-center'>
-            <img class='img-fluid' src='$imagen' width='550' height='auto' />
+            <img class='img-fluid' src='$imagen'/>
         </div>
     </div>
-    <h6 class='text-center mt-3 main-subtitle'>Desde ₡$lowestPrice</h6>
+    <h3 class='text-center mt-3 main-subtitle'>Precios desde: ₡$lowestPrice</h3>
     ";
     ?>
 

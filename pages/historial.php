@@ -82,6 +82,9 @@ oci_execute($curs);
         include '../components/footer.php';
     } else {
         echo '<div id="outer" class="container mt-5 header-top">
+                <br>
+                <br>
+                <br>
                 <div id="inner">
                     <h1 class="text-center mt-3">Historial de Compras</h1>
                     <p class="text-center">Aun no has realizado compras</p>

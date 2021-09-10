@@ -106,8 +106,8 @@ oci_execute($curs2);
         oci_free_statement($curs);
         echo '</div>
                     <!-- Right side -->
-                    <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
-                        <div class="rigth_side p-3 shadow bg-white">
+                    <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5" >
+                        <div class="rigth_side p-3 shadow bg-white" style="position: fixed; width:27vw">
                             <h2 class="product_name mb-4">Desgloce Factura:</h2>';
 
         $getCarritos = oci_parse($conn, "begin GET_CARRITOS(:CM, :ID_USUARIO); end;");
